@@ -1,0 +1,43 @@
+.page {
+    transition: opacity 300ms ease-in;
+    &-enter {
+        opacity: 0;
+    }
+    & .page-enter-active {
+        opacity: 1;
+        transition: opacity 300ms, transform 300ms;
+    }
+    & .page-exit {
+        opacity: 1;
+        &-active {
+            opacity: 0;
+            transition: opacity 300ms, transform 300ms;
+        }
+    }
+}
+
+.image-skeleton {
+    transition: opacity 500ms ease-in;
+    &-enter {
+        opacity: 0;
+    }
+    &-enter-active {
+        opacity: 1;
+        transition: opacity 500ms, transform 500ms;
+    }
+    &-exit {
+        opacity: 1;
+        &-active {
+            opacity: 0;
+            transition: opacity 500ms, transform 500ms;
+        }
+    }
+}
+
+body.page-is-transitioning {
+    opacity: 0;
+}
+body.page-is-transitioning-ended {
+    opacity: 1;
+    transition: opacity 500ms;
+}

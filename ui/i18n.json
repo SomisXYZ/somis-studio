@@ -1,0 +1,12 @@
+{
+    "locales": ["en"],
+    "defaultLocale": "en",
+    "pages": {
+        "*": ["common"],
+        "/profile": ["user"],
+        "/user/[keyword]": ["user"],
+        "/launchpad/[slug]": ["launchpad"],
+        "/explore-launchpads": ["launchpad"],
+        "rgx:/studio/*": ["studio"]
+    }
+}

@@ -1,0 +1,27 @@
+type Offer {
+    id: ID!
+    buyer: User!
+    nftAddress: String!
+    price: Price!
+    kiosk: String!
+    createdAt: DateTime!
+    expireAt: DateTime
+}
+
+input CreateOfferInput {
+    nftAddress: String!
+    price: Price!
+    expireAt: DateTime
+    txId: String!
+}
+
+input AcceptOfferInput {
+    offerId: String!
+    txId: String!
+}
+
+extend type Mutation {
+    createOffer(input: CreateOfferInput!): Offer! @role(roles: [USER]) @not_implemented
+    cancelOffer(offerId: String!): Offer! @role(roles: [USER]) @not_implemented
+    acceptOffer(input: AcceptOfferInput!): Offer! @role(roles: [USER]) @not_implemented
+}

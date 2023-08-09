@@ -1,0 +1,46 @@
+enum Role {
+    USER
+    ADMIN
+}
+
+enum SortingOrder {
+    ASC
+    DES
+}
+
+scalar DateTime
+scalar Map
+scalar Price
+
+type AWSPresignedPost {
+    url: String!
+    fields: Map!
+}
+
+input PagingInput {
+    skip: Int = 0 @constraint(min: 0)
+    limit: Int = 20 @constraint(max: 50)
+}
+
+input SortingInput {
+    order: SortingOrder = ASC
+}
+
+directive @role(roles: [Role!]!) on FIELD_DEFINITION
+directive @not_implemented on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Query {
+    _empty: String
+}
+
+type Mutation {
+    _empty: String
+}
+
+type Subscription {
+    _empty: String
+}
+
+interface PagingResult {
+    totalItems: Int!
+}

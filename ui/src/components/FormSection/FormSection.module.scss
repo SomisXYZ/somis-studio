@@ -1,0 +1,5 @@
+.form-section-focus:focus-within label,
+.form-section-focus:focus label {
+    @apply text-light-primary;
+    @apply dark:text-dark-primary;
+}

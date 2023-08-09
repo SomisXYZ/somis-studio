@@ -1,0 +1,140 @@
+{
+    "seo": {
+        "title": "Somis Studio",
+        "description": "Somis Studio is a NFT Launchpad for creators and collectors. Create your NFT collection and launch it on the Solana blockchain."
+    },
+    "launches": {
+        "title": "Manage Launches",
+        "description": "Here you can manage all the NFT launches and drops that you have created",
+        "collectionList": {
+            "title": "My Collections",
+            "timeleft": "Time left",
+            "saleLive": "Sale Live",
+            "uniqueOwners": "Unique Owners",
+            "percentSold": "Percent Sold",
+            "totalSales": "Total Sales"
+        },
+        "button": {
+            "createLaunch": "Create Launch",
+            "manage": "Manage",
+            "continue": "Continue"
+        },
+        "input": {
+            "search": "Search collections..."
+        }
+    },
+    "create": {
+        "title": "Create your NFT Launchpad",
+        "description": "Please select the type of collection you want to launch",
+        "fixedCollection": "Fixed Collection",
+        "fixedCollectionDescription": "Create copies of the same NFT. Every NFT will be numbered based on the number of NFTs you have chosen to create.",
+        "generativeCollection": "Generative Collection",
+        "generativeCollectionDescription": "Create a generative NFT collection. Recommended for drops with a total file size under 10MB. JSON file supported. An optional JSON file can be included for token metadata.",
+        "button": {
+            "createCollection": "Create Collection"
+        }
+    },
+    "createFixedCollection": {
+        "title": "Fixed Collection",
+        "description": "The launchpad details will be shown to users when they visit your launchpad page"
+    },
+    "createGenerativeCollection": {
+        "title": "Generative Collection",
+        "description": "Recommended for drops with a total file size under 10MB. JSON file supported. An optional JSON file can be included for token metadata."
+    },
+    "label": {
+        "collectionName": "Collection Name",
+        "symbol": "Symbol",
+        "description": "Description",
+        "price": "Mint Price",
+        "supply": "Supply",
+        "startTime": "Start Time",
+        "image": "Image",
+        "coverImage": "Cover Image",
+        "logo": "Logo",
+        "media": "Media",
+        "metadata": "Metadata",
+        "nftName": "NFT Name",
+        "number": "Number",
+        "batchNumber": "Batch Size",
+        "state": "Status",
+        "nftAddress": "NFT Address",
+        "avatar": "Avatar",
+        "url": "Collection URL",
+        "royalty": "Royalty",
+        "twitter": "Twitter",
+        "discord": "Discord",
+        "crew3": "Crew3",
+        "saleGroups": "Sale Tiers",
+        "maxMintByWallet": "Max Mint By Wallet",
+        "isPublicSale": "Public Sale",
+        "venueName": "Group Name",
+        "walletList": "Wallet List"
+    },
+    "description": {
+        "media": "Follow the example file structure to organize your nft & metadata.",
+        "metadata": "Follow the example file structure to organize your nft & metadata.",
+        "walletList": "Upload a CSV file with the wallet addresses. each address should be on a new line. max 100 amount of addresses.",
+        "twitter": "Enter your Twitter username",
+        "discord": "Enter your Discord username",
+        "crew3": "Enter your Crew3 username"
+    },
+    "helper": {
+        "maxMintByWalletHelper": "Enter -1 for unlimited"
+    },
+    "preview": "Preview",
+    "processingList": "Processing List",
+    "viewCollectionDetails": "View collection Details",
+    "setLive": "Set Live",
+    "button": {
+        "addWhitelist": "Add Whitelist",
+        "addMore": "Add More"
+    },
+    "createCollection": {
+        "title": "Create Collection"
+    },
+    "studioDetail": {
+        "tabs": {
+            "collection": "Collection",
+            "hatching": "hatching",
+            "items": "Items"
+        },
+        "items": {
+            "unMintNfts": "Unminted NFTs",
+            "mintedNfts": "Minted NFTs"
+        },
+        "hatching": {
+            "hits": {
+                "title": "Organize your metadata",
+                "description": "Follow the example file structure to organize your NFT & metadata."
+            },
+            "originalCard": {
+                "title": "Launchpad created",
+                "description": "Your launchpad has been created. You can now add your NFTs and metadata."
+            },
+            "hatchingCard": {
+                "title": "Hatching"
+            },
+            "errors": {
+                "countMissmatch": "The number of NFTs in the collection does not match the number of NFTs in the metadata file. ({{cNfts}} NFTs in the collection, {{mNfts}} NFTs in the metadata file)"
+            },
+            "createMetadataModal": {
+                "title": "Create Change",
+                "submit": "Schedule Change",
+                "metatdata": {
+                    "title": "Upload New Metadata",
+                    "description": "Recommended for drops with a total file size under 10MB. JSON file supported. An optional JSON file can be included for token metadata."
+                },
+                "startTime": {
+                    "title": "Start Time",
+                    "description": "Specify date & time for metadata change"
+                }
+            }
+        },
+        "tags": {
+            "original": "Original",
+            "pending": "Pending",
+            "scheduled": "Scheduled"
+        }
+    }
+}

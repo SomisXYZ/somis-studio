@@ -1,0 +1,38 @@
+mutation RequestLoginChallenge($publicKey: String!) {
+    requestLoginChallenge(publicKey: $publicKey) {
+        jwt
+        signData
+    }
+}
+
+mutation SubmitLoginChallenge($jwt: String!, $signature: String!) {
+    submitLoginChallenge(jwt: $jwt, signature: $signature)
+}
+
+query Me {
+    me {
+        ...UserParts
+    }
+}
+
+query GetAppConfig {
+    getAppConfig {
+        rpc
+        permissionPackage
+        allowlistPackage
+        authlistPackage
+        requestPackage
+        koiskPackage
+        liquidityLayerPackage
+        liquidityLayerV1Package
+        launchpadPackage
+        nftProtocolPackage
+        launchpadV2Package
+        dappPackage
+        allowlist
+        network
+        updatedAt
+        commissionBps
+        commissionAddress
+    }
+}

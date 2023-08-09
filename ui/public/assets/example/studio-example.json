@@ -1,0 +1,71 @@
+[
+    {
+        "name": "NFT #1",
+        "description": "NFT #1 is a example of a NFT, feel free to use it as you want",
+        "imageUrl": "https://",
+        "attributes": [
+            {
+                "name": "Background",
+                "value": "Blue"
+            },
+            {
+                "name": "Eyes",
+                "value": "Green"
+            },
+            {
+                "name": "Mouth",
+                "value": "Smile"
+            },
+            {
+                "name": "Nose",
+                "value": "Small"
+            }
+        ]
+    },
+    {
+        "name": "NFT #2",
+        "description": "NFT #2 is a example of a NFT, feel free to use it as you want",
+        "imageUrl": "https://",
+        "attributes": [
+            {
+                "name": "Background",
+                "value": "Red"
+            },
+            {
+                "name": "Eyes",
+                "value": "Blue"
+            },
+            {
+                "name": "Mouth",
+                "value": "Sad"
+            },
+            {
+                "name": "Nose",
+                "value": "Big"
+            }
+        ]
+    },
+    {
+        "name": "NFT #3",
+        "description": "NFT #3 is a example of a NFT, feel free to use it as you want",
+        "imageUrl": "https://",
+        "attributes": [
+            {
+                "name": "Background",
+                "value": "Yellow"
+            },
+            {
+                "name": "Eyes",
+                "value": "Brown"
+            },
+            {
+                "name": "Mouth",
+                "value": "Smile"
+            },
+            {
+                "name": "Nose",
+                "value": "Small"
+            }
+        ]
+    }
+]

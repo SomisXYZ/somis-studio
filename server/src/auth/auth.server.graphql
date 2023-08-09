@@ -1,0 +1,9 @@
+type LoginChallenge {
+    jwt: String!
+    signData: String!
+}
+
+extend type Mutation {
+    requestLoginChallenge(publicKey: String!): LoginChallenge!
+    submitLoginChallenge(jwt: String!, signature: String!): String!
+}

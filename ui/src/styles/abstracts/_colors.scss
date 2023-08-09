@@ -1,0 +1,230 @@
+:root,
+*::after,
+*::before {
+    --color-white: #ffffff;
+    --color-blue: #78aef2;
+    --color-sui: #6fa6cb;
+    --color-dark: #080404;
+    --color-purple: #b54dfe;
+    --color-red: #cf304a;
+    --color-green: #34cb88;
+    --color-yellow: #ffd600;
+    --color-pink: #ff30d1;
+    --color-transparent-black: rgba(0, 0, 0, 0.1);
+    --color-panel-dark: #232323;
+    --color-discord: #5865f2;
+    --color-discord-hover: #4951bd;
+    --color-twitter: #1d9bf0;
+    --color-twitter-hover: #1a8cd8;
+}
+
+.light,
+.light *::after,
+.light *::before {
+    --color-primary: var(--color-purple);
+    --color-primary-hover: #380a59;
+    --color-secondary: var(--color-blue);
+    --color-secondary-hover: #4c8ed1;
+    --color-text: #18181b; //                       Zinc    900
+    --color-text-reverse: #fafafa; //               Zinc    50
+    --color-text-secondary: #71717a; //             Zinc    500
+    --color-text-gray: #a1a1aa; //                  Zinc    400
+    --color-error: #ef4444; //                      Red     500
+    --color-success: #34d399; //                    Emerald 400
+    --color-gray: #a1a1aa; //                       Zinc    400
+    --color-input-background: #f4f4f6; //           Zinc    100
+    --color-background: #ffffff; //                 Zinc    0
+    --color-background-opacity: rgba(255, 255, 255, 0.8);
+    --color-background-hover: #f4f4f5; //           Zinc    100
+    --color-background-selected: #ececee; //        Zinc    150
+    --color-background-secondary: #fafafa; //       Zinc    50;
+    --color-background-secondary-hover: #e4e4e7; // Zinc    200
+    --color-background-tertiary: var(--color-background-secondary);
+    --color-background-quaternary: var(--color-background-secondary);
+    --color-border: #f3f4f6; //                     Zinc    100
+    --color-border-secondary: #e4e4e7; //           Zinc    200
+    --color-border-tertiary: #d4d4d8; //            Zinc    300
+    --color-background-modal: rgba(19, 19, 22, 0.6); // Zinc    1000
+    --color-banner-secondary: var(--color-purple);
+    --color-menu-background: #fff;
+    --color-menu-border: transparent;
+    --color-footer-background: #FFFFFF;
+    --color-footer-text: #fafafa;
+}
+
+.dark,
+.dark *::after,
+.dark *::before {
+    --color-primary: var(--color-pink);
+    --color-primary-hover: #cd00a0;
+    --color-secondary: var(--color-yellow);
+    --color-secondary-hover: #e6c100;
+    --color-text: #fafafa; //                       Zinc    100
+    --color-text-reverse: #18181b; //               Zinc    900
+    --color-text-secondary: #a1a1aa; //             Zinc    400
+    --color-text-gray: #71717a; //                  Zinc    500
+    --color-error: #b91c1c; //                      Red     700
+    --color-success: #059669; //                    Emerald 600
+    --color-gray: #71717a; //                       Zinc    500
+    --color-input-background: #18181b; //           Zinc    900
+    --color-background: #131316; //                 Zinc    1000
+    --color-background-opacity: rgba(19, 19, 22, 0.8);
+    --color-background-hover: #18181b; //           Zinc    900
+    --color-background-selected: var(--color-background-secondary-hover); //        Zinc    800
+    --color-background-secondary: #18181b; //       Zinc    900
+    --color-background-secondary-hover: #27272a; // Zinc    800
+    --color-background-tertiary: var(--color-background-secondary);
+    --color-background-quaternary: var(--color-background-secondary);
+    --color-border: #18181b; //                     Zinc    900
+    --color-border-secondary: #27272a; //           Zinc    800
+    --color-border-tertiary: #3f3f46; //            Zinc    700
+    --color-background-modal: rgba(19, 19, 22, 0.6); // Zinc    0
+    --color-banner-secondary: var(--color-yellow);
+    --color-menu-background: #141414;
+    --color-menu-border: #303030;
+    --color-footer-background: #131316;
+    --color-footer-text: #fafafa;
+}
+
+.color-gradient {
+    background: linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100.33%);
+}
+
+.color-text-gradient {
+    background: linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100.33%);
+    color: transparent;
+    @apply bg-clip-text;
+}
+
+.color-gradient-banner {
+    background: linear-gradient(90deg, var(--color-banner-secondary) 20%, var(--color-primary) 100.33%);
+}
+
+.color-text-default {
+    color: var(--color-text);
+}
+
+.color-text-primary {
+    color: var(--color-primary);
+}
+
+.color-text-secondary {
+    color: var(--color-text-secondary);
+}
+.color-text-white {
+    color: var(--color-text-gray);
+}
+
+.color-text-gray {
+    color: var(--color-text-gray);
+}
+
+.color-text-tertiary {
+    color: var(--color-text-tertiary);
+}
+.color-text-quaternary {
+    color: var(--color-secondary);
+}
+.color-text-default-hover {
+    &:hover {
+        color: var(--color-primary);
+    }
+    &.group-hover:hover {
+        color: var(--color-primary);
+    }
+}
+
+.color-text-reverse {
+    color: var(--color-text-reverse);
+}
+
+.color-text-success {
+    color: var(--color-success);
+}
+
+.color-text-error {
+    color: var(--color-error);
+}
+
+.color-border {
+    border-color: var(--color-border);
+}
+
+.color-checkbox-primary {
+    border-color: var(--color-border);
+    background-color: var(--color-input-background);
+}
+
+.color-checkbox-primary-checked {
+    background: var(--color-primary);
+}
+
+.color-border-gradient,
+.input-border-gradient:focus {
+    border-color: transparent;
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100.33%) border-box;
+}
+
+.color-border-gradient-shadow,
+.input-border-gradient-shadow:focus {
+    box-shadow: 0px 0px 6px 1px rgba(121, 174, 243, 0.5), 0px 0px 6px 1px rgba(181, 79, 255, 0.5);
+}
+
+.dark .hover\:color-gradient,
+.hover\:color-gradient {
+    &:hover {
+        background: linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100%) padding-box,
+            linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100%) border-box;
+
+        color: var(--color-text-reverse);
+    }
+    &.group-hover:hover {
+        background: linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100.33%) padding-box,
+            linear-gradient(90deg, var(--color-secondary) 50%, var(--color-primary) 100.33%) border-box;
+
+        color: var(--color-text-reverse);
+    }
+}
+
+.dark .color-border-gradient,
+.dark .input-border-gradient:focus {
+    border-color: transparent;
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(
+                89.99deg,
+                var(--color-secondary) 2.97%,
+                var(--color-secondary) 2.98%,
+                var(--color-primary) 95.7%
+            )
+            border-box;
+}
+
+.dark .color-border-gradient-shadow,
+.dark .input-border-gradient-shadow:focus {
+    box-shadow: 0px 0px 6px 1px rgba(255, 215, 1, 0.5), 0px 0px 6px 1px rgba(237, 55, 220, 0.5);
+}
+
+.disabled-color-gradient {
+    filter: grayscale(80%);
+}
+
+.color-input-background {
+    background-color: var(--color-input-background);
+}
+
+.color-opacity-background {
+    background-color: var(--color-background-opacity);
+}
+
+.color-selected-background {
+    background-color: var(--color-background-selected);
+}
+
+.color-menu-modal-background {
+    background-color: var(--color-menu-background);
+}
+
+.color-menu-modal-border {
+    border-color: var(--color-menu-border);
+}

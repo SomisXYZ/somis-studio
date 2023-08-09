@@ -1,0 +1,199 @@
+type Launchpad {
+    id: ID!
+    name: String!
+    category: String!
+    imageUrl: String!
+    coverUrl: String!
+    logoUrl: String!
+    launchDate: DateTime @deprecated(reason: "Use vanues")
+    mintPrice: String @deprecated(reason: "Use vanues")
+    twitter: String
+    discord: String
+    website: String
+    supply: Int
+    royalty: Int
+    sections: [Section!]
+    flags: [Flag!]
+    whitelisted: Boolean
+    # blockchain data
+    collectionAddress: String
+    listing: String
+    venue: String @deprecated(reason: "Use vanues")
+    publisher: String
+    metadataStore: String
+    borrowPolicy: String
+    hatchMetadata: [HatchMetadata!]
+    hatchDate: DateTime
+    venues: [Venue!]
+    warehouse: String
+    market: String
+    # stats
+    totalSales: String
+    items: Int
+    owners: Int
+    # computed
+    collection: Collection
+
+    # zealy
+    crew3Subdomain: String @deprecated(reason: "use zealySubdomain")
+    zealySubdomain: String
+    zealyApiKey: String @role(roles: [ADMIN])
+    zealyXp: Int
+    order: Int
+}
+
+type Section {
+    title: String!
+    content: String!
+}
+
+type Flag {
+    name: String!
+    included: Boolean!
+}
+
+type Venue {
+    name: String!
+    address: String!
+    isPublicSale: Boolean!
+    maxMintPerWallet: Int!
+    startTime: DateTime!
+    price: String!
+}
+
+type HatchMetadataAttribute {
+    name: String!
+    value: String!
+}
+
+type HatchMetadata {
+    name: String!
+    description: String!
+    imageUrl: String!
+    attributes: [HatchMetadataAttribute!]
+}
+
+input SectionInput {
+    title: String!
+    content: String!
+}
+
+input FlagInput {
+    name: String!
+    included: Boolean!
+}
+
+input VenueInput {
+    name: String!
+    address: String!
+    isPublicSale: Boolean!
+    maxMintPerWallet: Int!
+    startTime: DateTime!
+    price: String!
+}
+
+input HatchMetadataAttributeInput {
+    name: String!
+    value: String!
+}
+
+input HatchMetadataInput {
+    name: String!
+    description: String!
+    imageUrl: String!
+    attributes: [HatchMetadataAttributeInput!]!
+}
+
+type LaunchpadsResult implements PagingResult {
+    items: [Launchpad!]!
+    totalItems: Int!
+}
+
+input CreateLaunchpadInput {
+    launchpadAddress: String
+    name: String!
+    category: String!
+    launchDate: DateTime
+    mintPrice: String
+    twitter: String
+    discord: String
+    website: String
+    supply: Int
+    royalty: Int
+    sections: [SectionInput!]
+    flags: [FlagInput!]
+    collectionAddress: String
+    listing: String
+    venue: String
+    venues: [VenueInput!]
+    publisher: String
+    metadataStore: String
+    borrowPolicy: String
+    hatchMetadata: [HatchMetadataInput!]
+    hatchDate: DateTime
+    warehouse: String
+    market: String
+
+    zealySubdomain: String
+    zealyApiKey: String
+    zealyXp: Int
+    order: Int
+
+    whitelisted: Boolean
+}
+
+input UpdateLaunchpadInput {
+    launchpadAddress: String
+    name: String
+    category: String
+    description: String
+    launchDate: DateTime
+    mintPrice: String
+    twitter: String
+    discord: String
+    website: String
+    supply: Int
+    royalty: Int
+    sections: [SectionInput!]
+    flags: [FlagInput!]
+    collectionAddress: String
+    listing: String
+    venue: String
+    venues: [VenueInput!]
+    publisher: String
+    metadataStore: String
+    borrowPolicy: String
+    hatchMetadata: [HatchMetadataInput!]
+    hatchDate: DateTime
+    warehouse: String
+    market: String
+
+    zealySubdomain: String
+    zealyApiKey: String
+    zealyXp: Int
+    order: Int
+
+    whitelisted: Boolean
+}
+
+input LaunchpadFilterInput {
+    keyword: String
+    owner: String
+    whitelisted: Boolean
+}
+
+extend type Query {
+    launchpads(filter: LaunchpadFilterInput, paging: PagingInput): LaunchpadsResult!
+    launchpad(id: String!): Launchpad
+}
+
+extend type Mutation {
+    onMint(launchpadId: String!, nftAddress: String!, txId: String!): Boolean! @role(roles: [USER])
+
+    createLaunchpad(input: CreateLaunchpadInput!): Launchpad! @role(roles: [ADMIN, USER])
+    updateLaunchpad(id: String!, input: UpdateLaunchpadInput!): Launchpad! @role(roles: [ADMIN, USER])
+    updateLaunchpadImage(id: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+    updateLaunchpadCover(id: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+    updateLaunchpadLogo(id: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+    deleteLaunchpad(id: String!): Launchpad! @role(roles: [ADMIN, USER])
+}

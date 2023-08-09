@@ -1,0 +1,47 @@
+{
+    "header": {
+        "title": {
+            "items": "items",
+            "owners": "owners",
+            "mintPrice": "mint price",
+            "totalSales": "total sales"
+        }
+    },
+    "mintSoon": "Mint soon",
+    "mint": "Mint",
+    "hatching": "Hatching",
+    "minted": "Minted",
+    "mintIn": "Minting in",
+    "mintBtn": "MINT",
+    "publicSale": "Public Sale",
+    "mintPrice": "Mint Price",
+    "items": "items",
+    "endIn": "End In",
+    "startsIn": "Starts in",
+    "exploreLaunchpads": {
+        "title": "All Launches"
+    },
+    "mintModal": {
+        "title": "NFT Purchase",
+        "successMessage": {
+            "one": "You just bought {{count}} NFT. View them in your inventory!",
+            "other": "You just bought {{count}} NFTs. View them in your inventory!"
+        },
+        "failMessage": {
+            "one": "You failed to buy {{count}} NFT.",
+            "other": "You failed to buy {{count}} NFTs."
+        },
+        "inventoryBtn": "View inventory",
+        "stayOnPageBtn": "Stay on page"
+    },
+    "button": {
+        "soldOut": "Sold Out",
+        "comingSoon": "Coming Soon",
+        "hatchBtn": {
+            "one": "Hatch {{count}} Nft",
+            "other": "Hatch {{count}} Nfts"
+        }
+    },
+    "mintTab": "Mint NFT",
+    "hatchTab": "Hatch NFT"
+}

@@ -1,0 +1,71 @@
+.h1-gradient {
+    margin-top: 0px;
+    background-image: linear-gradient(131deg, #f6f063, #ff3873 35%, #711eff 61%, #3fe5ff 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:hover {
+        background-image: linear-gradient(131deg, #f6f063, #ff3873 35%, #711eff 61%, #3fe5ff);
+    }
+    &.ligh-shadow-gradient {
+        left: 0%;
+        top: 0%;
+        right: 0%;
+        bottom: 0%;
+        width: auto;
+        height: auto;
+        background-image: none;
+        -webkit-filter: blur(60px);
+        filter: blur(60px);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    &.animate-gradient {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        right: 0%;
+        bottom: 0%;
+        display: block;
+        background-image: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            from(hsla(0, 0%, 100%, 0)),
+            color-stop(50%, hsla(0, 0%, 100%, 0.4)),
+            to(hsla(0, 0%, 100%, 0))
+        );
+        background-image: linear-gradient(
+            90deg,
+            hsla(0, 0%, 100%, 0),
+            hsla(0, 0%, 100%, 0.4) 50%,
+            hsla(0, 0%, 100%, 0)
+        );
+        -webkit-transition-property: none;
+        transition-property: none;
+    }
+}
+
+.wrapper-heading-gradient {
+    position: relative;
+}
+
+.animate-gradient {
+    background-size: 50%;
+    animation: heading-animate 4s ease-in-out infinite;
+}
+
+@keyframes heading-animate {
+    0% {
+        background-position: -100%;
+    }
+
+    30% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: -100%;
+    }
+}

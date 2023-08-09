@@ -1,0 +1,12 @@
+.left-content {
+    position: relative;
+    &::after {
+        content: '';
+        background: var(--color-border);
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        right: -1rem;
+        max-height: 1000px;
+    }
+}

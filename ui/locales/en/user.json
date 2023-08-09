@@ -1,0 +1,22 @@
+{
+    "header": {
+        "title": {
+            "items": "Items",
+            "listed": "Listed",
+            "unlisted": "Unlisted",
+            "estValue": "Est Value"
+        }
+    },
+    "tabs": {
+        "owned": "Owned",
+        "activity": "Activity",
+        "offers": "Offers"
+    },
+    "profileModalContent": {
+        "profileImage": "DISPLAY PICTURE",
+        "profileImageDescription": "Max 0.5 MB",
+        "displayName": "DISPLAY NAME",
+        "displayNamePlaceholder": "Enter your display name",
+        "social": "SOCIALS"
+    }
+}

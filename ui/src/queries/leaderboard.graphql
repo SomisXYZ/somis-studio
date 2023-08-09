@@ -1,0 +1,15 @@
+query ListLeaderboards($limit: Int, $skip: Int) {
+    leaderboards(paging: { limit: $limit, skip: $skip }) {
+        items {
+            user {
+                address
+                name
+                username
+                profileUrl
+            }
+            volume
+            point
+        }
+        totalItems
+    }
+}

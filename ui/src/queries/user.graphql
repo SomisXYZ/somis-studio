@@ -1,0 +1,105 @@
+fragment UserParts on User {
+    address
+    name
+    username
+    profileUrl
+    coverUrl
+    role
+    description
+    lastLogin
+    ownedItems
+    listed
+    unlisted
+    estValue
+    discordConnected
+    discordHandle
+    twitterConnected
+    twitterHandle
+}
+
+query getUser($address: String!) {
+    user(address: $address) {
+        ...UserParts
+    }
+}
+
+mutation updateProfile($input: UpdateUserInput!) {
+    updateUser(input: $input) {
+        address
+        profileUrl
+        name
+        username
+    }
+}
+
+mutation updateUserProfileImage {
+    updateUserProfileImage {
+        url
+        fields
+    }
+}
+
+mutation connectDiscord($code: String!, $redirectUri: String!) {
+    connectDiscord(code: $code, redirectUri: $redirectUri)
+}
+
+query requestTwitterOAuthCode($redirectUrl: String!) {
+    requestTwitterOAuthCode(redirectUrl: $redirectUrl) {
+        oauthToken
+        oauthTokenSecret
+        oauthCallbackConfirmed
+    }
+}
+
+mutation connectTwitter($oauthToken: String!, $oauthVerifier: String!) {
+    connectTwitter(oauthToken: $oauthToken, oauthVerifier: $oauthVerifier)
+}
+
+mutation disconnectTwitter {
+    disconnectTwitter
+}
+
+mutation disconnectDiscord {
+    disconnectDiscord
+}
+
+query GetNotifications($skip: Int, $limit: Int) {
+    notifications(paging: { skip: $skip, limit: $limit }) {
+        items {
+            id
+            type
+            createdAt
+            title
+            body
+            metadata
+            readAt
+            completedAt
+        }
+        totalItems
+    }
+}
+
+mutation dismissNotification($id: String!) {
+    dismissNotification(id: $id)
+}
+
+mutation dismissAllNotification {
+    dismissAllNotification
+}
+
+mutation completeNotification($id: String!) {
+    completeNotification(id: $id)
+}
+
+subscription SubscribeToNotifications {
+    subscribeNotification {
+        id
+        type
+        createdAt
+        title
+        body
+        metadata
+        readAt
+        completedAt
+    }
+}

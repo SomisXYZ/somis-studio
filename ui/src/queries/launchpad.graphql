@@ -1,0 +1,111 @@
+fragment LaunchpadParts on Launchpad {
+    id
+    name
+    category
+    imageUrl
+    logoUrl
+    coverUrl
+    launchDate
+    collectionAddress
+    mintPrice
+    twitter
+    discord
+    website
+    supply
+    publisher
+    metadataStore
+    borrowPolicy
+    hatchDate
+    hatchMetadata {
+        name
+        description
+        imageUrl
+        attributes {
+            name
+            value
+        }
+    }
+    royalty
+    zealySubdomain
+    sections {
+        title
+        content
+    }
+    flags {
+        name
+        included
+    }
+    collection {
+        type
+        orderbook
+        address
+        description
+    }
+    listing
+    venue
+    venues {
+        name
+        address
+        maxMintPerWallet
+        startTime
+        price
+        isPublicSale
+    }
+    warehouse
+    market
+    owners
+    totalSales
+    order
+}
+
+query QueryLaunchpad($id: String!) {
+    launchpad(id: $id) {
+        ...LaunchpadParts
+    }
+}
+
+query ListLaunchpads($limit: Int, $skip: Int, $keyword: String, $owner: String) {
+    launchpads(paging: { limit: $limit, skip: $skip }, filter: { keyword: $keyword, owner: $owner }) {
+        items {
+            ...LaunchpadParts
+        }
+        totalItems
+    }
+}
+
+mutation onMint($launchpadId: String!, $nftAddress: String!, $txId: String!) {
+    onMint(launchpadId: $launchpadId, nftAddress: $nftAddress, txId: $txId)
+}
+
+mutation CreateLaunchpad($input: CreateLaunchpadInput!) {
+    createLaunchpad(input: $input) {
+        ...LaunchpadParts
+    }
+}
+
+mutation UpdateLaunchpad($id: String!, $input: UpdateLaunchpadInput!) {
+    updateLaunchpad(id: $id, input: $input) {
+        ...LaunchpadParts
+    }
+}
+
+mutation updateLaunchpadImage($id: String!) {
+    updateLaunchpadImage(id: $id) {
+        url
+        fields
+    }
+}
+
+mutation updateLaunchpadCover($id: String!) {
+    updateLaunchpadCover(id: $id) {
+        url
+        fields
+    }
+}
+
+mutation updateLaunchpadLogo($id: String!) {
+    updateLaunchpadLogo(id: $id) {
+        url
+        fields
+    }
+}

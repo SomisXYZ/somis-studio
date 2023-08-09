@@ -1,0 +1,15 @@
+.markdown-content {
+    & > ul {
+        list-style: disc;
+        margin-left: 1.125rem;
+    }
+
+    & > ol {
+        margin-left: 1.125rem;
+        list-style: decimal;
+    }
+}
+
+:global(.dark) .markdown-content {
+    color: #a1a1a1;
+}

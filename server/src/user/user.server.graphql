@@ -1,0 +1,83 @@
+type User {
+    address: ID!
+    name: String!
+    username: String!
+    profileUrl: String
+    coverUrl: String
+    role: Role
+    description: String
+    lastLogin: DateTime
+    ownedItems: Int!
+    listed: Int!
+    unlisted: Int!
+    estValue: Float!
+    discordConnected: Boolean
+    discordHandle: String
+    twitterConnected: Boolean
+    twitterHandle: String
+}
+
+type UsersResult implements PagingResult {
+    items: [User!]!
+    totalItems: Int!
+}
+
+input UserFilterInput {
+    keyword: String
+    role: Role
+}
+
+enum UserSortingFields {
+    NAME
+    USERNAME
+    LASTLOGIN
+    ROLE
+}
+
+input UserSortingInput {
+    field: UserSortingFields = LASTLOGIN
+    order: SortingOrder = ASC
+}
+
+extend type Query {
+    me: User! @role(roles: [USER])
+    user(address: String!): User!
+    users(filter: UserFilterInput, paging: PagingInput, sorting: UserSortingInput): UsersResult!
+}
+
+input UpdateUserInput {
+    name: String
+    username: String
+    description: String
+    twitter: String
+}
+
+input AdminUpdateUserInput {
+    name: String
+    username: String
+    description: String
+    twitter: String
+    role: Role
+}
+
+input AdminCreateUserInput {
+    address: String!
+    name: String!
+    username: String!
+    description: String
+    twitter: String
+    role: Role!
+}
+
+extend type Mutation {
+    indexWallet(address: String!): Boolean! @role(roles: [ADMIN])
+    updateUser(input: UpdateUserInput!): User! @role(roles: [USER])
+    updateUserProfileImage: AWSPresignedPost! @role(roles: [USER])
+    updateUserCoverImage: AWSPresignedPost! @role(roles: [USER])
+
+    adminCreateUser(input: AdminCreateUserInput!): User! @role(roles: [ADMIN])
+    adminDeleteUser(address: String!): User! @role(roles: [ADMIN])
+    adminUpdateUser(address: String!, input: AdminUpdateUserInput!): User! @role(roles: [ADMIN])
+    adminUpdateUserProfileImage(address: String!): AWSPresignedPost! @role(roles: [ADMIN])
+    adminUpdateUserCoverImage(address: String!): AWSPresignedPost! @role(roles: [ADMIN])
+}

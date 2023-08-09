@@ -1,0 +1,27 @@
+.timeline-item {
+    position: relative;
+    z-index: 1;
+    &:after {
+        content: '';
+        width: 0.125rem;
+        position: absolute;
+        top: 50%;
+        bottom: -2.65rem;
+        @apply bg-light-border;
+        left: 0.3125rem;
+        z-index: -1;
+    }
+    &:last-child:after {
+        width: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+:global(.dark) {
+    .timeline-item {
+        &:after {
+            @apply bg-dark-border;
+        }
+    }
+}

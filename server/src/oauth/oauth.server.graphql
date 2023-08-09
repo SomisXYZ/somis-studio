@@ -1,0 +1,12 @@
+type TwitterOAuthCode {
+    oauthToken: String!
+    oauthTokenSecret: String!
+    oauthCallbackConfirmed: String!
+}
+
+extend type Query {
+    requestTwitterOAuthCode(redirectUrl: String!): TwitterOAuthCode!
+}
+
+extend type Mutation {
+}

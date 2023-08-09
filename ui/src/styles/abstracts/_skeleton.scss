@@ -1,0 +1,51 @@
+.skeleton {
+    &-heading {
+        &-1 {
+            @apply h-[3.75rem] max-lg:h-12;
+        }
+        &-2 {
+            @apply h-9 max-lg:h-6;
+        }
+        &-3 {
+            @apply h-[57px] max-lg:h-5;
+        }
+        &-4 {
+            @apply h-[2rem] max-lg:h-12;
+        }
+    }
+    &-body {
+        &-xl {
+            @apply h-8 max-lg:h-[1.625rem];
+        }
+        &-lg {
+            @apply h-5;
+        }
+        &-md {
+            @apply h-4;
+        }
+        &-title {
+            @apply h-4;
+        }
+        &-sm {
+            @apply h-3;
+        }
+        &-1 {
+            @apply h-6 max-lg:h-5;
+        }
+        &-2 {
+            @apply h-4;
+        }
+        &-3 {
+            @apply h-4;
+        }
+        &-4 {
+            @apply h-4;
+        }
+        &-5 {
+            @apply h-10;
+        }
+    }
+    &-logo {
+        @apply h-[1.75rem];
+    }
+}

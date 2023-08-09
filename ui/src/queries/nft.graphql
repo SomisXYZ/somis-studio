@@ -1,0 +1,139 @@
+fragment NftParts on Nft {
+    address
+    name
+    description
+    imageUrl
+    type
+    collection {
+        name
+        address
+        orderbook
+        somisOrderbook
+        transferPolicy
+        withdrawPolicy
+        bpsRoyaltyStrategy
+        transferAllowlist
+        collectionObject
+        orderbookType
+    }
+    attributes {
+        floor
+        items
+        name
+        percentage
+        value
+    }
+    owner {
+        address
+    }
+    order {
+        id
+        price
+        seller {
+            address
+        }
+        sellerKiosk
+        createdAt
+        orderbookType
+    }
+}
+
+query ListNfts(
+    $address: String!
+    $filter: NftFilterInput
+    $field: NftSortingFields
+    $order: SortingOrder
+    $limit: Int
+    $skip: Int
+) {
+    nfts(
+        collectionAddress: $address
+        filter: $filter
+        sorting: { field: $field, order: $order }
+        paging: { limit: $limit, skip: $skip }
+    ) {
+        items {
+            ...NftParts
+        }
+        totalItems
+    }
+}
+
+query QueryNft($address: String!) {
+    nft(address: $address) {
+        ...NftParts
+        collection {
+            name
+            address
+            imageUrl
+            royalty
+            stats {
+                floor
+            }
+            description
+            orderbook
+            type
+            creators {
+                user {
+                    address
+                }
+                share
+            }
+        }
+        events {
+            id
+            type
+            txId
+            price
+            createdAt
+            originOwner {
+                address
+            }
+            newOwner {
+                address
+            }
+        }
+    }
+}
+
+query getNftsByOwner(
+    $owner: String!
+    $field: NftSortingFields
+    $collectionAddress: String
+    $order: SortingOrder
+    $limit: Int
+    $skip: Int
+    $listedFilter: NftsByOwnerListedFilter
+) {
+    nftsByOwner(
+        owner: $owner
+        sorting: { field: $field, order: $order }
+        paging: { limit: $limit, skip: $skip }
+        listedFilter: $listedFilter
+        collectionAddress: $collectionAddress
+    ) {
+        items {
+            ...NftParts
+        }
+        totalItems
+    }
+}
+
+mutation IndexNft($address: String!) {
+    indexNft(address: $address)
+}
+
+subscription SubscribeNftEvent($address: String!) {
+    subscribeNftEvent(nftAddress: $address) {
+        type
+        txId
+        price
+        createdAt
+        originOwner {
+            address
+        }
+        newOwner {
+            address
+        }
+    }
+}

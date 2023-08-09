@@ -1,0 +1,18 @@
+schema: https://api-staging.somis.xyz/graphql
+documents: './src/**/*.graphql'
+generates:
+    ./src/gql/generated/graphql.ts:
+        plugins:
+            - add
+            - typescript
+            - typescript-operations
+            - typescript-react-query
+        config:
+            content:
+                - /* eslint-disable */
+                - // @ts-ignore
+            fetcher: '../fetcher#fetcher'
+            exposeQueryKeys: true
+            addInfiniteQuery: true
+            exposeFetcher: true
+            pureMagicComment: true

@@ -1,0 +1,15 @@
+.background-blur {
+    position: absolute;
+    width: 154px;
+    height: 155px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 10px;
+    background: rgba(111, 188, 240, 0.7);
+    filter: blur(150px);
+}
+
+:global(.dark) .background-blur {
+    background: rgba(237, 55, 220, 0.6);
+}

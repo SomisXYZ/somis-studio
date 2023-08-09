@@ -1,0 +1,70 @@
+@use './abstracts/typography';
+@use './abstracts/colors';
+@use './abstracts/skeleton';
+@use './abstracts/animations';
+@use './abstracts/nprogress';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+    --column-width: 176px;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: -webkit-fill-available;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 10px;
+}
+
+input[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+#__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollable {
+    margin-top: -5.5rem;
+    padding-top: 5.5rem;
+}
+
+html {
+    @apply bg-light-content-background;
+}
+
+html.dark {
+    @apply bg-dark-content-background;
+}
+
+.toast div:last-child {
+    justify-content: flex-start;
+}

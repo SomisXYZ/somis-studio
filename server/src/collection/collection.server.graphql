@@ -1,0 +1,193 @@
+enum CollectionSortingFields {
+    NAME
+    VOL24
+    VOL24_DELTA
+    TOTAL_VOL
+    FLOOR
+    TOTAL_ITEMS
+}
+
+enum OrderbookType {
+    SOMIS
+    OB # LiquityLayer
+    OB_V1 # LiquityLayerV1
+}
+
+type Creator {
+    user: User
+    share: Int
+}
+
+type Collection {
+    address: ID!
+    name: String!
+    slug: String!
+    description: String
+    creators: [Creator]
+    royalty: Int
+    verified: Boolean
+    stats: CollectionStats
+    attributes: [CollectionAttribute!]!
+    imageUrl: String
+    coverUrl: String
+    logoUrl: String
+    discord: String
+    twitter: String
+    website: String
+
+    packageModule: String @deprecated(reason: "Use type")
+    type: String
+    orderbook: String
+    somisOrderbook: String @deprecated(reason: "Use orderbook and orderbookType")
+    transferPolicy: String
+    withdrawPolicy: String
+    bpsRoyaltyStrategy: String
+    collectionObject: String
+    orderbookType: OrderbookType
+    transferAllowlist: String
+
+    collectionBidStats: CollectionBidStats!
+    myCollecitonBid: [CollectionBid!]! @role(roles: [USER])
+    whitelisted: Boolean
+}
+
+type CollectionAttribute {
+    name: String
+    values: [NftAttribute!]!
+}
+
+type CollectionStats {
+    totalItems: Int!
+    floor: String
+    vol24: String!
+    vol24Delta: String
+    vol30D: String
+    vol7D: String
+    totalVol: String
+    owners: Int!
+    listedItem: Int!
+    updatedAt: DateTime!
+}
+
+type CollectionsResult implements PagingResult {
+    items: [Collection!]!
+    totalItems: Int!
+}
+
+input CollectionFilterInput {
+    keyword: String
+    verified: Boolean
+    whitelisted: Boolean
+}
+
+input CollectionSortingInput {
+    field: CollectionSortingFields = NAME
+    order: SortingOrder = ASC
+}
+
+input UpdateCollectionInput {
+    name: String
+    description: String
+    verified: Boolean
+    slug: String
+    whitelisted: Boolean
+    discord: String
+    twitter: String
+    website: String
+    packageModule: String
+    type: String
+    orderbook: String
+    somisOrderbook: String
+    transferPolicy: String
+    withdrawPolicy: String
+    bpsRoyaltyStrategy: String
+    collectionObject: String
+    orderbookType: OrderbookType
+    transferAllowlist: String
+}
+
+input CreateCollectionInput {
+    address: String!
+    name: String
+    description: String
+    verified: Boolean
+    slug: String!
+    whitelisted: Boolean
+    discord: String
+    twitter: String
+    website: String
+    packageModule: String
+    type: String
+    orderbook: String
+    somisOrderbook: String
+    transferPolicy: String
+    withdrawPolicy: String
+    bpsRoyaltyStrategy: String
+    collectionObject: String
+    orderbookType: OrderbookType
+    transferAllowlist: String
+}
+
+input CollectionChartDataInput {
+    address: String!
+    interval: Int!
+    intervalUnit: IntervalUnit!
+    from: DateTime!
+    to: DateTime!
+}
+
+input CollectionScatterChartDataInput {
+    address: String!
+    from: DateTime!
+    to: DateTime!
+}
+
+enum IntervalUnit {
+    MIN
+    HOUR
+    DAY
+}
+
+type Candlestick {
+    o: Float!
+    c: Float!
+    h: Float!
+    l: Float!
+    v: Float!
+    ts: Float!
+}
+
+type CollectionScatterChartData {
+    p: Float!
+    ts: Float!
+}
+
+type OwnedCollection {
+    collection: Collection!
+    ownedItems: Int!
+}
+
+extend type Query {
+    collection(address: String @deprecated, addressOrSlug: String): Collection
+    collections(filter: CollectionFilterInput, paging: PagingInput, sorting: CollectionSortingInput): CollectionsResult!
+
+    collectionsByOwner(owner: String!): [OwnedCollection!]!
+
+    collectionEvents(address: String!, paging: PagingInput): NftEventResult!
+    collectionChartData(input: CollectionChartDataInput!): [Candlestick!]!
+    collectionScatterChartData(input: CollectionScatterChartDataInput!): [CollectionScatterChartData!]!
+}
+
+extend type Mutation {
+    indexCollection(address: String!): Boolean @role(roles: [ADMIN, USER])
+    indexCollectionByContract(address: String!): Boolean @role(roles: [ADMIN])
+
+    createCollection(input: CreateCollectionInput!): Collection! @role(roles: [ADMIN, USER])
+    deleteCollection(address: String!): Collection! @role(roles: [ADMIN, USER])
+    getNftUploadImageUrl(address: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+
+    updateCollection(address: String!, input: UpdateCollectionInput!): Collection! @role(roles: [ADMIN, USER])
+    updateCollectionImageUrl(address: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+    updateCollectionCoverUrl(address: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+    updateCollectionLogoUrl(address: String!, mimeType: String): AWSPresignedPost! @role(roles: [ADMIN, USER])
+}

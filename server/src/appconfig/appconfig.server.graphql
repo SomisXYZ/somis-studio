@@ -1,0 +1,60 @@
+type AppConfig {
+    rpc: String
+    privateRpc: String @role(roles: [ADMIN])
+    wsRpc: String @role(roles: [ADMIN])
+    explorerRpc: String
+
+    permissionPackage: String
+    allowlistPackage: String
+    authlistPackage: String
+    requestPackage: String
+    koiskPackage: String
+    liquidityLayerPackage: String
+    liquidityLayerV1Package: String
+    launchpadPackage: String
+    nftProtocolPackage: String
+    launchpadV2Package: String
+
+    dappPackage: String
+    dappPackages: [String!]
+    allowlist: String
+    network: String
+    updatedAt: DateTime!
+
+    commissionBps: String
+    commissionAddress: String
+}
+
+input UpdateAppConfigInput {
+    rpc: String
+    privateRpc: String
+    wsRpc: String
+    explorerRpc: String
+
+    permissionPackage: String
+    allowlistPackage: String
+    authlistPackage: String
+    requestPackage: String
+    koiskPackage: String
+    liquidityLayerPackage: String
+    liquidityLayerV1Package: String
+    launchpadPackage: String
+    nftProtocolPackage: String
+    launchpadV2Package: String
+
+    dappPackage: String
+    dappPackages: [String!]
+    allowlist: String
+    network: String
+
+    commissionBps: String
+    commissionAddress: String
+}
+
+extend type Query {
+    getAppConfig: AppConfig!
+}
+
+extend type Mutation {
+    updateAppConfig(input: UpdateAppConfigInput!): AppConfig! @role(roles: [ADMIN])
+}

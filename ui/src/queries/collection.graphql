@@ -1,0 +1,206 @@
+query ListCollections(
+    $field: CollectionSortingFields
+    $order: SortingOrder
+    $limit: Int
+    $skip: Int
+    $verified: Boolean
+    $keyword: String
+) {
+    collections(
+        sorting: { field: $field, order: $order }
+        paging: { limit: $limit, skip: $skip }
+        filter: { verified: $verified, keyword: $keyword }
+    ) {
+        items {
+            name
+            address
+            coverUrl
+            imageUrl
+            stats {
+                floor
+                totalVol
+                vol24
+                vol24Delta
+                owners
+                listedItem
+            }
+            verified
+        }
+        totalItems
+    }
+}
+
+query QueryCollection($address: String!) {
+    collection(addressOrSlug: $address) {
+        name
+        description
+        coverUrl
+        imageUrl
+        address
+        orderbook
+        somisOrderbook
+        transferPolicy
+        withdrawPolicy
+        transferAllowlist
+        collectionObject
+        bpsRoyaltyStrategy
+        type
+        twitter
+        discord
+        website
+        attributes {
+            name
+            values {
+                floor
+                items
+                value
+                percentage
+            }
+        }
+        verified
+        stats {
+            floor
+            vol24
+            vol24Delta
+            totalVol
+            owners
+            listedItem
+            totalItems
+        }
+        collectionBidStats {
+            items {
+                price
+                numberOfBid
+                owner
+            }
+        }
+        orderbookType
+    }
+}
+
+query GetOrdersByCollection($collectionAddress: String!, $paging: PagingInput, $sorting: OrderSortingInput) {
+    ordersByCollection(collectionAddress: $collectionAddress, paging: $paging, sorting: $sorting) {
+        items {
+            id
+            seller {
+                address
+            }
+            nftAddress
+            nft {
+                ...NftParts
+            }
+            collectionAddress
+            price
+            sellerKiosk
+            createdAt
+        }
+        totalItems
+    }
+}
+
+subscription SubscribeCollectionOrders($collectionAddress: String!) {
+    subscribeCollectionOrders(collectionAddress: $collectionAddress) {
+        type
+        order {
+            id
+            seller {
+                address
+            }
+            nftAddress
+            nft {
+                ...NftParts
+            }
+            collectionAddress
+            price
+            sellerKiosk
+            createdAt
+        }
+        nft {
+            address
+        }
+    }
+}
+
+query collectionChartData(
+    $address: String!
+    $interval: Int! = 1
+    $intervalUnit: IntervalUnit! = HOUR
+    $from: DateTime!
+    $to: DateTime!
+) {
+    collectionChartData(
+        input: { address: $address, interval: $interval, intervalUnit: $intervalUnit, from: $from, to: $to }
+    ) {
+        o
+        c
+        h
+        l
+        v
+        ts
+    }
+}
+
+query GetCollectionsByOwner($owner: String!) {
+    collectionsByOwner(owner: $owner) {
+        collection {
+            address
+            name
+            slug
+            imageUrl
+            stats {
+                floor
+            }
+        }
+        ownedItems
+    }
+}
+
+mutation CreateCollection($input: CreateCollectionInput!) {
+    createCollection(input: $input) {
+        address
+        name
+        slug
+        description
+        creators {
+            user {
+                address
+                name
+            }
+            share
+        }
+        royalty
+        verified
+        imageUrl
+        coverUrl
+        orderbook
+        type
+    }
+}
+
+mutation updateCollectionImageUrl($address: String!) {
+    updateCollectionImageUrl(address: $address) {
+        url
+        fields
+    }
+}
+
+mutation updateCollectionCoverUrl($address: String!) {
+    updateCollectionCoverUrl(address: $address) {
+        url
+        fields
+    }
+}
+
+mutation updateCollectionLogoUrl($address: String!) {
+    updateCollectionLogoUrl(address: $address) {
+        url
+        fields
+    }
+}
+
+mutation updateNftUploadImageUrl($address: String!) {
+    getNftUploadImageUrl(address: $address) {
+        url
+        fields
+    }
+}

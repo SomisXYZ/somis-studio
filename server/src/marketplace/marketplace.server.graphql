@@ -1,0 +1,64 @@
+type Order {
+    id: ID!
+    seller: User!
+    nftAddress: String!
+    nft: Nft!
+    collectionAddress: String!
+    price: Price!
+    sellerKiosk: String
+    createdAt: DateTime
+    orderbook: String!
+    orderbookType: OrderbookType!
+}
+
+type CollectionBid {
+    id: ID!
+    price: Price!
+    bidder: User!
+    bidderKiosk: String
+    createdAt: DateTime
+}
+
+type CollectionBidStatsItem {
+    price: String!
+    numberOfBid: Int!
+    owner: Int!
+}
+
+type CollectionBidStats {
+    items: [CollectionBidStatsItem!]!
+}
+
+enum OrderEventType {
+    NEW
+    REMOVED
+}
+
+type OrderEvent {
+    type: OrderEventType!
+    order: Order
+    nft: Nft!
+}
+
+enum OrderSortingFields {
+    CREATED_AT
+    PRICE
+}
+
+input OrderSortingInput {
+    field: OrderSortingFields = CREATED_AT
+    order: SortingOrder = DES
+}
+
+type OrdersResult implements PagingResult {
+    items: [Order!]!
+    totalItems: Int!
+}
+
+extend type Query {
+    ordersByCollection(collectionAddress: String!, paging: PagingInput, sorting: OrderSortingInput): OrdersResult!
+}
+
+extend type Subscription {
+    subscribeCollectionOrders(collectionAddress: String!): OrderEvent!
+}

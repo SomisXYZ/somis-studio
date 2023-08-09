@@ -1,0 +1,103 @@
+.menu-icon {
+    z-index: 100;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    margin: 0px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    & span {
+        display: block;
+        position: absolute;
+        height: 0.25rem;
+        width: 100%;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
+        &:nth-child(1) {
+            top: 0.125rem;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+            top: 0.625rem;
+        }
+        &:nth-child(4) {
+            top: 1.125rem;
+        }
+    }
+    &.open span {
+        border-radius: 0.25rem;
+        &:nth-child(1) {
+            top: 1.125rem;
+            width: 0%;
+            left: 50%;
+        }
+        &:nth-child(2) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &:nth-child(3) {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        &:nth-child(4) {
+            top: 1.125rem;
+            width: 0%;
+            left: 50%;
+        }
+    }
+}
+
+.mobile-nav {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease;
+}
+
+.slide {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.slide-enter-active,
+.slide-enter-done {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+.slide-exit {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+.slide-exit-active {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}

@@ -1,0 +1,138 @@
+enum NftSortingFields {
+    NAME
+    PRICE
+}
+
+type NftAttribute {
+    name: String!
+    value: String!
+    items: Int!
+    floor: String
+    lastSale: String
+    percentage: Float
+}
+
+enum NftEventType {
+    MINT
+    LIST
+    CREATE_AUCTION
+    CANCEL_AUCTION
+    BID
+    CANCEL_BID
+    CANCEL_ORDER
+    CANCEL_OFFER
+    BUY
+    ACCEPT_OFFER
+    OFFER
+    TRANSFER
+    BURN
+    CREATE_COLLECTION_BID
+    FULFILL_COLLECTION_BID
+    CANCEL_COLLECTION_BID
+}
+
+type NftEvent {
+    id: String! @deprecated
+    txId: ID!
+    createdAt: DateTime
+    type: NftEventType!
+    originOwner: User
+    newOwner: User
+    user: User
+    price: String
+}
+
+type Nft {
+    address: ID!
+    name: String
+    description: String
+    attributes: [NftAttribute!]
+    imageUrl: String
+    order: Order
+    collection: Collection
+    owner: User
+    events: [NftEvent!]! # only show last 10 events
+    type: String
+}
+
+type NftResult implements PagingResult {
+    totalItems: Int!
+    items: [Nft!]!
+}
+
+type NftEventResult implements PagingResult {
+    totalItems: Int!
+    items: [NftEvent!]!
+}
+
+input NftAttributesFilter {
+    name: String!
+    values: [String!]!
+}
+
+input NftFilterInput {
+    keyword: String
+    attributes: [NftAttributesFilter!]
+    minPrice: Price
+    maxPrice: Price
+    listedOnly: Boolean
+    excludeOwned: Boolean
+}
+
+input NftSortingInput {
+    field: NftSortingFields = NAME
+    order: SortingOrder = ASC
+}
+
+input CreateNftEventInput {
+    createdAt: DateTime
+    type: NftEventType!
+    originOwner: String
+    newOwner: String
+    price: Price
+    txId: String
+}
+
+input UpdateNftEventInput {
+    createdAt: DateTime
+    type: NftEventType!
+    originOwner: String
+    newOwner: String
+    price: Price
+    txId: String
+}
+
+enum NftsByOwnerListedFilter {
+    ALL
+    LISTED
+    UNLISTED
+}
+
+extend type Query {
+    nft(address: String!): Nft
+    nfts(collectionAddress: String!, filter: NftFilterInput, paging: PagingInput, sorting: NftSortingInput): NftResult!
+    nftsByOwner(
+        owner: String!
+        collectionAddress: String
+        paging: PagingInput
+        sorting: NftSortingInput
+        listedFilter: NftsByOwnerListedFilter = ALL
+    ): NftResult!
+
+    # NftEvent
+    nftEvents(address: String!, paging: PagingInput): NftEventResult!
+    nftEventsByCollection(collectionAddress: String!, paging: PagingInput): NftEventResult!
+}
+
+extend type Mutation {
+    indexNft(address: String!): Boolean
+
+    # NftEvent
+    createNftEvent(nftAddress: String!, input: CreateNftEventInput!): NftEvent! @role(roles: [ADMIN])
+    updateNftEvent(id: String!, input: UpdateNftEventInput!): NftEvent! @role(roles: [ADMIN])
+    deleteNftEvent(id: String!): NftEvent! @role(roles: [ADMIN])
+}
+
+extend type Subscription {
+    subscribeNftEvent(nftAddress: String!): NftEvent!
+}

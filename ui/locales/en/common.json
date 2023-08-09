@@ -1,0 +1,356 @@
+{
+    "countdown": {
+        "days": "{{days}}d",
+        "hours": "{{hours}}h",
+        "minutes": "{{minutes}}m",
+        "seconds": "{{seconds}}s"
+    },
+    "empty": {
+        "noData": "No NFTs found",
+        "noLaunchpads": "No launchpads found",
+        "noCollections": "No collections found"
+    },
+    "floorDifference": {
+        "above": "{{percent}}% above floor",
+        "below": "{{percent}}% below floor"
+    },
+    "dateAgo": {
+        "years": "{{years}} years ago",
+        "months": "{{months}} months ago",
+        "days": "{{days}} days ago",
+        "hours": "{{hours}} hours ago",
+        "minutes": "{{minutes}} minutes ago",
+        "seconds": "{{seconds}} seconds ago",
+        "justNow": "Just now"
+    },
+    "shortDateAgo": {
+        "years": "{{years}}Y",
+        "months": "{{months}}M",
+        "days": "{{days}}d",
+        "hours": "{{hours}}h",
+        "minutes": "{{minutes}}m",
+        "seconds": "{{seconds}}s",
+        "justNow": "Just now"
+    },
+    "from": "from",
+    "to": "to",
+    "landing": {
+        "title": "The Fastest NFT Marketplace \non Sui",
+        "subtitle": "Pro trading and community governance for NFTs on Sui",
+        "buttonTitle": "Explore NFTs",
+        "featuredLaunches": {
+            "title": "Featured Launches",
+            "buttonTitle": "Explore all launches",
+            "leftTillMint": "left till mint",
+            "endIn": "Ends in",
+            "mintPrice": "Mint Price",
+            "minted": "Minted",
+            "startsIn": "Starts in"
+        },
+        "collections": {
+            "title": "Top Collections by 24h volume",
+            "buttonTitle": "Explore all collections",
+            "floor": "Floor",
+            "24hVol": "24h Vol"
+        }
+    },
+    "menu": {
+        "title": {
+            "connectWallet": "Connect Wallet",
+            "explore": "Explore",
+            "profile": "Profile",
+            "launchpad": "Launchpad",
+            "collections": "Collections",
+            "rewards": "Rewards",
+            "walletbalance": "Wallet Balance",
+            "logout": "Logout",
+            "chooseWallet": "Choose a wallet to continue",
+            "notSureWallet": "Not sure which wallet to use?",
+            "clickHere": "Click here",
+            "toLearnMore": "to learn more.",
+            "downloadSuiWallet": "Download Sui Wallet",
+            "leaderboard": "Leaderboard",
+            "nightMode": "Night Mode",
+            "connectDiscord": "Link Discord",
+            "disconnectDiscord": "Unlink Discord",
+            "updateDiscord": "Update Discord",
+            "connectTwitter": "Link Twitter",
+            "disconnectTwitter": "Unlink Twitter",
+            "studio": "Studio"
+        },
+        "mode": {
+            "light": "Light",
+            "dark": "Dark"
+        }
+    },
+    "profileCard": {
+        "button": { "viewProfile": "View Profile" }
+    },
+    "market": {
+        "header": {
+            "title": {
+                "items": "Items",
+                "listed": "Listed",
+                "owners": "Owners",
+                "totalVolume": "Total Vol",
+                "24hVolume": "24h Vol",
+                "floor": "Floor"
+            }
+        },
+        "button": {
+            "sweepMode": "Sweep mode",
+            "sweepModeOff": "Off Sweep",
+            "buy": "Buy",
+            "viewCart": "View Cart"
+        },
+        "filter": {
+            "buyNow": "Buy Now",
+            "priceRange": "Price Range (SUI)"
+        },
+        "label": {
+            "selected": "Selected"
+        }
+    },
+    "nft": {
+        "tokenDetails": {
+            "title": "Token Details",
+            "mintAddress": "Mint Address",
+            "onChainCollection": "On-chain Collection",
+            "creatorRoyalties": "Creator Royalties",
+            "platformFee": "Platform Fee",
+            "listBiddingCancel": "List/Bidding/Cancel",
+            "free": "Free"
+        },
+        "offers": {
+            "title": "Offers"
+        },
+        "globalFloor": "Global Floor",
+        "currentPrice": "Current Price",
+        "attributes": {
+            "title": "Attributes"
+        },
+        "activity": {
+            "title": "Activity",
+            "type": {}
+        },
+        "listModal": {
+            "title": "NFT LISTING",
+            "price": "Price",
+            "errorTitle": "Listing failed",
+            "aboveFloor": "above floor",
+            "listAt": "List at",
+            "total": "total est. proceeds",
+            "aboveFloorWarning": "You are listing your NFT above the floor price unless {{percent}}% of the floor price is met.",
+            "confirmList": {
+                "one": "List {{count}} item",
+                "other": "List {{count}} items"
+            }
+        },
+        "buyModal": {
+            "title": "Buy Items",
+            "price": "Price",
+            "items": {
+                "one": "{{count}} item",
+                "other": "{{count}} items"
+            },
+            "total": "Total",
+            "errorTitle": "Purchase failed",
+            "insufficientBalance": "Insufficient balance"
+        },
+        "owned": "Owned",
+        "you": "You"
+    },
+    "tradeBottomDrawer": {
+        "sweep": "Sweep Items",
+        "cart": "Cart",
+        "price": "Items Price ({{count}})",
+        "royalty": "Royalty",
+        "total": "Total",
+        "confirmButton": "Buy NFTs"
+    },
+    "floorBidModal": {
+        "title": "COLLECTION OFFER",
+        "success": "Your offer has been placed successfully.",
+        "floorPrice": "Floor Price",
+        "topBid": "Top Bid",
+        "bidPrice": "Bid Price",
+        "size": "Size",
+        "totalSize": "Total Size"
+    },
+    "cancelFloorBidModal": {
+        "title": "YOUR BIDS",
+        "success": "Your offer has been cancelled successfully.",
+        "floorPrice": "Floor Price",
+        "bidAmount": "Bid Amount",
+        "created": "Created",
+        "cancelBidItem": {
+            "zero": "Close {{count}} bid",
+            "one": "Close {{count}} bid",
+            "other": "Close {{count}} bids"
+        }
+    },
+    "input": {
+        "globalSearch": {
+            "placeholder": "Search collections"
+        },
+        "search": {
+            "placeholder": "Search"
+        },
+        "minPrice": {
+            "placeholder": "Min"
+        },
+        "maxPrice": {
+            "placeholder": "Max"
+        },
+        "items": {
+            "placeholder": "Search items..."
+        },
+        "image": {
+            "uploadImage": "Upload Image",
+            "remove": "Remove"
+        },
+        "file": {
+            "uploadFile": "Upload File",
+            "example": "Download Example Folder",
+            "remove": "Remove"
+        }
+    },
+    "validation": {
+        "required": "This is a mandatory field.",
+        "numberType": "This field must be a number.",
+        "min": "This field must be at least {{min}}.",
+        "max": "This field only accepts up to {{max}}."
+    },
+    "floor": "floor",
+    "exploreCollections": {
+        "title": "Top Collections by 24h volume",
+        "table": {
+            "header": {
+                "rank": "Rank",
+                "collection": "Collection",
+                "floor": "Floor",
+                "vol24": "24h Vol",
+                "totalVol": "Total Vol",
+                "owners": "Owners",
+                "listings": "Listings"
+            }
+        }
+    },
+    "leaderboard": {
+        "title": "Leaderboard",
+        "description": "Earn your spot on the leaderboard by trading on our platform. The more you trade, the more points you will earn. Points are updated every 10 minutes.",
+        "table": {
+            "header": {
+                "position": "Position",
+                "user": "user",
+                "points": "Points",
+                "tradingVolume": "Trading Volume"
+            }
+        }
+    },
+    "offer": {
+        "expiresAt": "Expires {{date}}"
+    },
+    "error": {
+        "collectionNotFound": "Collection not found {{address}}"
+    },
+    "button": {
+        "apply": "Apply",
+        "cancel": "Cancel",
+        "clear": "Clear",
+        "filter": "Filter",
+        "sort": "Sort",
+        "submit": "Submit",
+        "list": "List",
+        "bid": "Bid",
+        "buy": "Buy",
+        "buyNow": "Buy Now",
+        "trade": "Trade",
+        "details": "Details",
+        "notListed": "Not Listed",
+        "save": "Save",
+        "next": "Next",
+        "upload": "Upload",
+        "edit": "Edit",
+        "preview": "Preview",
+        "createBid": "Create Bid",
+        "cancelBid": "Close Bid",
+        "bidItem": "Bid Item",
+        "filterAndSort": "Filter & Sort",
+        "add": "Add",
+        "remove": "Remove",
+        "schedule": "Schedule"
+    },
+    "filter": "Filter",
+    "sortBy": "Sort by",
+    "sort": {
+        "descending": "Price high to low",
+        "ascending": "Price low to high"
+    },
+    "mint": {
+        "success": "Your NFT is now available in your wallet."
+    },
+    "collection": {
+        "tabs": {
+            "items": "Items",
+            "trading": "trading",
+            "bid": "Bids"
+        }
+    },
+    "trait": "Trait",
+    "qty": "Qty",
+    "lastSale": "Last Sale",
+    "nftName": "NFT Name",
+    "buyNow": "Buy Now",
+    "owner": "Owner",
+    "held": "#Held",
+    "name": "Name",
+    "value": "Value",
+    "item": "Item",
+    "seller": "Seller",
+    "buyer": "Buyer",
+    "total": "Total",
+    "size": "Size",
+    "bidders": "Bidders",
+    "price": "Price",
+    "activity": "Activity",
+    "noActivity": "No Activity",
+    "insufficientBalance": "Insufficient Balance",
+    "discordConnected": "Discord Successfully Connected",
+    "discordConnectFailed": "Discord Connect Failed",
+    "twitterConnected": "Twitter Successfully Connected",
+    "discordDisconnected": "Discord Successfully Disconnected",
+    "twitterDisconnected": "Twitter Successfully Disconnected",
+    "expired": "Expired",
+    "tba": "TBA",
+    "notification": {
+        "title": "Notifications",
+        "button": "go to notification centre",
+        "type": {
+            "WELCOME": "Welcome to Somis! Read our docs to learn how to use our dApp.",
+            "NFT_SOLD": "{{nftName}} was sold at {{price}} SUI.",
+            "BID_FULFILLED": "You won the bid for {{nftName}}.",
+            "BID_LOST": "You lost the bid for {{nftName}}. Please withdraw the deposit.",
+            "CREW3_XP_RECEIVED": "You gained {{xp}} XP on {{community}} CREW³ for {{label}}."
+        },
+        "chaim": " Please claim the NFT."
+    },
+    "nftEvent": {
+        "ACCEPT_OFFER": "Accepted Offer",
+        "BID": "Bid",
+        "BURN": "Burn",
+        "BUY": "Buy",
+        "CANCEL_AUCTION": "Cancelled Auction",
+        "CANCEL_BID": "Cancelled Bid",
+        "CANCEL_COLLECTION_BID": "Cancelled Bid",
+        "CANCEL_OFFER": "Cancelled Offer",
+        "CANCEL_ORDER": "Cancelled Order",
+        "CREATE_AUCTION": "Created Auction",
+        "CREATE_COLLECTION_BID": "Created Bid",
+        "FULFILL_COLLECTION_BID": "Sold",
+        "LIST": "List",
+        "MINT": "Mint",
+        "OFFER": "Offer",
+        "TRANSFER": "Transfer"
+    }
+}
